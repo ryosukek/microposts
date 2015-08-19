@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
                       format: { with: VARID_EMAIL_REGEX },
                       uniqueness: { case_sensitive: false }
     has_secure_password
+    has_many :microposts
 end
