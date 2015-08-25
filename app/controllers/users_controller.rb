@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
   
   def show
     @user = User.find(params[:id])
@@ -27,6 +27,14 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     redirect_to user_path(@user) , notice: 'アカウント情報を更新しました。'
+  end
+  
+  def followings
+    @followings = @user.following_users
+  end
+  
+  def followers
+    @followers = @user.follower_users
   end
   
   private
