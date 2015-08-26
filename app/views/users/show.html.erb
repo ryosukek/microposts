@@ -6,6 +6,10 @@
                 <%= @user.name %>
             </h1>
         </section>
+        <div class="btn-group">
+            <%= link_to "followings", followings_user_path(@user), class: "btn btn-success" %>
+            <%= link_to "followers", followers_user_path(@user), class: "btn btn-info" %>
+        </div>
     </aside>
     <div class="col-md-8">
         <%= render 'follow_form' if logged_in? %>
